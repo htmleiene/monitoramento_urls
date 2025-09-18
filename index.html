@@ -605,509 +605,505 @@
         <span id="notification-text"></span>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // URLs fixas da Inspirali
-            const urlsInspirali = [
-                "https://www.inspirali.com/cursos-para-medicos/ortopedia-do-esporte-e-exercicio/",
-                "https://www.inspirali.com/cursos-para-medicos/emergencias-oncologicas-aols/",
-                "https://www.inspirali.com/cursos-para-medicos/gestao-medica-avancada/",
-                "https://www.inspirali.com/cursos-para-medicos/psicopatologia-e-fenomenologia/",
-                "https://www.inspirali.com/cursos-para-medicos/hernia-hands-on/",
-                "https://www.inspirali.com/portfolio/#matriculese",
-                "https://www.inspirali.com/cursos-para-medicos/pos-graduacao-em-hepatologia/",
-                "https://www.inspirali.com/cursos-para-medicos/multidisciplinar-em-cuidados-paliativos/",
-                "https://www.inspirali.com/cursos-para-medicos/cirurgia-minimamente-invasiva/",
-                "https://www.inspirali.com/cursos-para-medicos/ultrassonografia-musculoesqueletica/",
-                "https://www.inspirali.com/cursos-para-medicos/multidisciplinar-em-oncologia/",
-                "https://www.inspirali.com/cursos-para-medicos/psicofarmacologia-avancada-e-farmacogenetica/",
-                "https://www.inspirali.com/cursos-para-medicos/endoscopia-digestiva/",
-                "https://www.inspirali.com/cursos-para-medicos/cirurgia-ginecologica-minimamente-invasiva/",
-                "https://www.inspirali.com/cursos-para-medicos/menopausa-descomplicada-uma-jornada-da-teoria-a-pratica/",
-                "https://www.inspirali.com/cursos-para-medicos/medicina-intensiva/",
-                "https://www.inspirali.com/cursos-para-medicos/cardiologia-clinica-cirurgica-e-intervencionista/",
-                "https://www.inspirali.com/cursos-para-medicos/colonoscopia/",
-                "https://www.inspirali.com/cursos-para-medicos/dermatologia/",
-                "https://www.inspirali.com/cursos-para-medicos/ecocardiografia/",
-                "https://www.inspirali.com/cursos-para-medicos/especializacao-em-cirurgia-de-joelho/",
-                "https://www.inspirali.com/cursos-para-medicos/especializacao-medica-em-cirurgia-vascular/",
-                "https://www.inspirali.com/cursos-para-medicos/imagem-da-mama/",
-                "https://www.inspirali.com/cursos-para-medicos/medicina-do-esporte/",
-                "https://www.inspirali.com/cursos-para-medicos/pos-graduacao-em-ultrassonografia-geral/",
-                "https://www.inspirali.com/cursos-para-medicos/cirurgia-de-cabeca-e-pescoco/",
-                "https://www.inspirali.com/cursos-para-medicos/multiprofissional-em-terapia-intensiva/",
-                "https://www.inspirali.com/cursos-para-medicos/diagnostico-e-terapeutica-dos-transtornos-mentais-comuns/",
-                "https://www.inspirali.com/cursos-para-medicos/nutricao-esportiva/",
-                "https://www.inspirali.com/cursos-para-medicos/medicina-endocanabinoide-direto-ao-ponto/",
-                "https://www.inspirali.com/cursos-para-medicos/ecografia-doppler-vascular/",
-                "https://www.inspirali.com/cursos-para-medicos/pos-graduacao-em-medicina-da-dor-e-terapias-intervencionistas/",
-                "https://www.inspirali.com/cursos-para-medicos/gastroenterologia/",
-                "https://www.inspirali.com/cursos-para-medicos/pocus-point-of-care-ultrasound/",
-                "https://www.inspirali.com/cursos-para-medicos/cardiologia-do-esporte-e-exercicio/",
-                "https://www.inspirali.com/cursos-para-medicos/cirurgia-bariatrica-e-metabolica/"
-            ];
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // URLs fixas da Inspirali
+        const urlsInspirali = [
+            "https://www.inspirali.com/cursos-para-medicos/ortopedia-do-esporte-e-exercicio/",
+            "https://www.inspirali.com/cursos-para-medicos/emergencias-oncologicas-aols/",
+            "https://www.inspirali.com/cursos-para-medicos/gestao-medica-avancada/",
+            "https://www.inspirali.com/cursos-para-medicos/psicopatologia-e-fenomenologia/",
+            "https://www.inspirali.com/cursos-para-medicos/hernia-hands-on/",
+            "https://www.inspirali.com/portfolio/#matriculese",
+            "https://www.inspirali.com/cursos-para-medicos/pos-graduacao-em-hepatologia/",
+            "https://www.inspirali.com/cursos-para-medicos/multidisciplinar-em-cuidados-paliativos/",
+            "https://www.inspirali.com/cursos-para-medicos/cirurgia-minimamente-invasiva/",
+            "https://www.inspirali.com/cursos-para-medicos/ultrassonografia-musculoesqueletica/",
+            "https://www.inspirali.com/cursos-para-medicos/multidisciplinar-em-oncologia/",
+            "https://www.inspirali.com/cursos-para-medicos/psicofarmacologia-avancada-e-farmacogenetica/",
+            "https://www.inspirali.com/cursos-para-medicos/endoscopia-digestiva/",
+            "https://www.inspirali.com/cursos-para-medicos/cirurgia-ginecologica-minimamente-invasiva/",
+            "https://www.inspirali.com/cursos-para-medicos/menopausa-descomplicada-uma-jornada-da-teoria-a-pratica/",
+            "https://www.inspirali.com/cursos-para-medicos/medicina-intensiva/",
+            "https://www.inspirali.com/cursos-para-medicos/cardiologia-clinica-cirurgica-e-intervencionista/",
+            "https://www.inspirali.com/cursos-para-medicos/colonoscopia/",
+            "https://www.inspirali.com/cursos-para-medicos/dermatologia/",
+            "https://www.inspirali.com/cursos-para-medicos/ecocardiografia/",
+            "https://www.inspirali.com/cursos-para-medicos/especializacao-em-cirurgia-de-joelho/",
+            "https://www.inspirali.com/cursos-para-medicos/especializacao-medica-em-cirurgia-vascular/",
+            "https://www.inspirali.com/cursos-para-medicos/imagem-da-mama/",
+            "https://www.inspirali.com/cursos-para-medicos/medicina-do-esporte/",
+            "https://www.inspirali.com/cursos-para-medicos/pos-graduacao-em-ultrassonografia-geral/",
+            "https://www.inspirali.com/cursos-para-medicos/cirurgia-de-cabeca-e-pescoco/",
+            "https://www.inspirali.com/cursos-para-medicos/multiprofissional-em-terapia-intensiva/",
+            "https://www.inspirali.com/cursos-para-medicos/diagnostico-e-terapeutica-dos-transtornos-mentais-comuns/",
+            "https://www.inspirali.com/cursos-para-medicos/nutricao-esportiva/",
+            "https://www.inspirali.com/cursos-para-medicos/medicina-endocanabinoide-direto-ao-ponto/",
+            "https://www.inspirali.com/cursos-para-medicos/ecografia-doppler-vascular/",
+            "https://www.inspirali.com/cursos-para-medicos/pos-graduacao-em-medicina-da-dor-e-terapias-intervencionistas/",
+            "https://www.inspirali.com/cursos-para-medicos/gastroenterologia/",
+            "https://www.inspirali.com/cursos-para-medicos/pocus-point-of-care-ultrasound/",
+            "https://www.inspirali.com/cursos-para-medicos/cardiologia-do-esporte-e-exercicio/",
+            "https://www.inspirali.com/cursos-para-medicos/cirurgia-bariatrica-e-metabolica/"
+        ];
+        
+        // Elementos do DOM
+        const tabelaUrls = document.getElementById('tabelaUrls').getElementsByTagName('tbody')[0];
+        const iniciarBtn = document.getElementById('iniciarMonitoramento');
+        const pararBtn = document.getElementById('pararMonitoramento');
+        const verificarAgoraBtn = document.getElementById('verificarAgora');
+        const intervaloInput = document.getElementById('intervalo');
+        const totalUrlsElement = document.getElementById('totalUrls');
+        const onlineUrlsElement = document.getElementById('onlineUrls');
+        const offlineUrlsElement = document.getElementById('offlineUrls');
+        const checkingUrlsElement = document.getElementById('checkingUrls');
+        const lastUpdateElement = document.getElementById('lastUpdate');
+        const themeToggle = document.getElementById('themeToggle');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notification-text');
+        
+        // Variáveis para os gráficos
+        let statusChart, historyChart;
+        let historyData = [];
+        const maxHistoryItems = 10;
+        
+        // Array para armazenar as URLs e seus dados
+        let urls = [];
+        let intervalos = {};
+        let monitoramentoAtivo = false;
+        let checkingCount = 0;
+        let onlineCount = 0;
+        let offlineCount = 0;
+        
+        // Função para mostrar notificações
+        function showNotification(message, type = 'info') {
+            notificationText.textContent = message;
+            notification.className = 'notification ' + type;
+            notification.classList.add('show');
             
-            // Elementos do DOM
-            const tabelaUrls = document.getElementById('tabelaUrls').getElementsByTagName('tbody')[0];
-            const iniciarBtn = document.getElementById('iniciarMonitoramento');
-            const pararBtn = document.getElementById('pararMonitoramento');
-            const verificarAgoraBtn = document.getElementById('verificarAgora');
-            const intervaloInput = document.getElementById('intervalo');
-            const totalUrlsElement = document.getElementById('totalUrls');
-            const onlineUrlsElement = document.getElementById('onlineUrls');
-            const offlineUrlsElement = document.getElementById('offlineUrls');
-            const checkingUrlsElement = document.getElementById('checkingUrls');
-            const lastUpdateElement = document.getElementById('lastUpdate');
-            const themeToggle = document.getElementById('themeToggle');
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notification-text');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Verificar se há preferência de tema salva
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+        
+        // Alternar entre temas claro e escuro
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
-            // Variáveis para os gráficos
-            let statusChart, historyChart;
-            let historyData = [];
-            const maxHistoryItems = 10;
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
             
-            // Array para armazenar as URLs e seus dados
-            let urls = [];
-            let intervalos = {};
-            let monitoramentoAtivo = false;
-            let checkingCount = 0;
-            let onlineCount = 0;
-            let offlineCount = 0;
-            
-            // Função para mostrar notificações
-            function showNotification(message, type = 'info') {
-                notificationText.textContent = message;
-                notification.className = 'notification ' + type;
-                notification.classList.add('show');
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
+            // Atualizar gráficos quando o tema mudar
+            if (statusChart) statusChart.destroy();
+            if (historyChart) historyChart.destroy();
+            criarGraficos();
+        });
+        
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
             }
+        }
+        
+        // Inicializar os gráficos
+        function criarGraficos() {
+            const ctx1 = document.getElementById('statusChart').getContext('2d');
+            const ctx2 = document.getElementById('historyChart').getContext('2d');
             
-            // Verificar se há preferência de tema salva
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-                updateThemeIcon(savedTheme);
-            }
+            // Verificar se estamos no modo escuro
+            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDarkMode ? '#e1e4e8' : '#333';
+            const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
             
-            // Alternar entre temas claro e escuro
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeIcon(newTheme);
-                
-                // Atualizar gráficos quando o tema mudar
-                if (statusChart) statusChart.destroy();
-                if (historyChart) historyChart.destroy();
-                criarGraficos();
-            });
-            
-            function updateThemeIcon(theme) {
-                const icon = themeToggle.querySelector('i');
-                if (theme === 'dark') {
-                    icon.className = 'fas fa-sun';
-                } else {
-                    icon.className = 'fas fa-moon';
-                }
-            }
-            
-            // Inicializar os gráficos
-            function criarGraficos() {
-                const ctx1 = document.getElementById('statusChart').getContext('2d');
-                const ctx2 = document.getElementById('historyChart').getContext('2d');
-                
-                // Verificar se estamos no modo escuro
-                const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-                const textColor = isDarkMode ? '#e1e4e8' : '#333';
-                const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
-                
-                // Gráfico de status atual
-                statusChart = new Chart(ctx1, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Online', 'Offline', 'Verificando'],
-                        datasets: [{
-                            data: [onlineCount, offlineCount, checkingCount],
-                            backgroundColor: [
-                                'rgba(46, 204, 113, 0.8)',
-                                'rgba(231, 76, 60, 0.8)',
-                                'rgba(243, 156, 18, 0.8)'
-                            ],
-                            borderColor: [
-                                'rgba(46, 204, 113, 1)',
-                                'rgba(231, 76, 60, 1)',
-                                'rgba(243, 156, 18, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'bottom',
-                                labels: {
-                                    color: textColor,
-                                    font: {
-                                        size: 12
-                                    }
+            // Gráfico de status atual - REMOVIDA A SEÇÃO "VERIFICANDO"
+            statusChart = new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Online', 'Offline'],
+                    datasets: [{
+                        data: [onlineCount, offlineCount],
+                        backgroundColor: [
+                            'rgba(46, 204, 113, 0.8)',
+                            'rgba(231, 76, 60, 0.8)'
+                        ],
+                        borderColor: [
+                            'rgba(46, 204, 113, 1)',
+                            'rgba(231, 76, 60, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: textColor,
+                                font: {
+                                    size: 12
                                 }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        const label = context.label || '';
-                                        const value = context.raw || 0;
-                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                        const percentage = Math.round((value / total) * 100);
-                                        return `${label}: ${value} (${percentage}%)`;
-                                    }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${value} (${percentage}%)`;
                                 }
                             }
                         }
                     }
-                });
-                
-                // Preparar dados para o histórico
+                }
+            });
+            
+            // Preparar dados para o histórico
+            const labels = historyData.map(item => {
+                const date = new Date(item.timestamp);
+                return date.toLocaleTimeString('pt-BR');
+            });
+            
+            const onlineData = historyData.map(item => item.online);
+            const offlineData = historyData.map(item => item.offline);
+            
+            // Gráfico de histórico
+            historyChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Online',
+                            data: onlineData,
+                            borderColor: 'rgba(46, 204, 113, 1)',
+                            backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Offline',
+                            data: offlineData,
+                            borderColor: 'rgba(231, 76, 60, 1)',
+                            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: urls.length,
+                            ticks: {
+                                color: textColor
+                            },
+                            grid: {
+                                color: gridColor
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: textColor,
+                                maxRotation: 45,
+                                minRotation: 45
+                            },
+                            grid: {
+                                color: gridColor
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: textColor
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Atualizar dados dos gráficos
+        function atualizarGraficos() {
+            if (statusChart) {
+                statusChart.data.datasets[0].data = [onlineCount, offlineCount];
+                statusChart.update();
+            }
+            
+            // Adicionar dados ao histórico
+            const now = new Date();
+            historyData.push({
+                timestamp: now.getTime(),
+                online: onlineCount,
+                offline: offlineCount
+            });
+            
+            // Manter apenas os últimos itens
+            if (historyData.length > maxHistoryItems) {
+                historyData = historyData.slice(historyData.length - maxHistoryItems);
+            }
+            
+            if (historyChart) {
                 const labels = historyData.map(item => {
                     const date = new Date(item.timestamp);
                     return date.toLocaleTimeString('pt-BR');
                 });
                 
-                const onlineData = historyData.map(item => item.online);
-                const offlineData = historyData.map(item => item.offline);
+                historyChart.data.labels = labels;
+                historyChart.data.datasets[0].data = historyData.map(item => item.online);
+                historyChart.data.datasets[1].data = historyData.map(item => item.offline);
+                historyChart.update();
+            }
+        }
+        
+        // Inicializar as URLs
+        function inicializarUrls() {
+            urls = urlsInspirali.map(url => {
+                return {
+                    url: url,
+                    status: 'unknown',
+                    lastChecked: null,
+                    httpCode: null
+                };
+            });
+            
+            atualizarContadores();
+            popularTabela();
+            criarGraficos();
+        }
+        
+        // Popular a tabela avec as URLs
+        function popularTabela() {
+            tabelaUrls.innerHTML = '';
+            
+            urls.forEach((item, index) => {
+                const novaLinha = tabelaUrls.insertRow();
                 
-                // Gráfico de histórico
-                historyChart = new Chart(ctx2, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: [
-                            {
-                                label: 'Online',
-                                data: onlineData,
-                                borderColor: 'rgba(46, 204, 113, 1)',
-                                backgroundColor: 'rgba(46, 204, 113, 0.1)',
-                                tension: 0.3,
-                                fill: true
-                            },
-                            {
-                                label: 'Offline',
-                                data: offlineData,
-                                borderColor: 'rgba(231, 76, 60, 1)',
-                                backgroundColor: 'rgba(231, 76, 60, 0.1)',
-                                tension: 0.3,
-                                fill: true
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                max: urls.length,
-                                ticks: {
-                                    color: textColor
-                                },
-                                grid: {
-                                    color: gridColor
-                                }
-                            },
-                            x: {
-                                ticks: {
-                                    color: textColor,
-                                    maxRotation: 45,
-                                    minRotation: 45
-                                },
-                                grid: {
-                                    color: gridColor
-                                }
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                                labels: {
-                                    color: textColor
-                                }
-                            }
-                        }
+                // Célula da URL
+                const celulaUrl = novaLinha.insertCell(0);
+                celulaUrl.innerHTML = `<a href="${item.url}" target="_blank" class="url">${item.url}</a>`;
+                
+                // Célula de status
+                const celulaStatus = novaLinha.insertCell(1);
+                celulaStatus.innerHTML = '<span class="status checking"><i class="fas fa-sync-alt spin"></i> Não verificado</span>';
+                
+                // Célula da última verificação
+                const celulaUltimaVerificacao = novaLinha.insertCell(2);
+                celulaUltimaVerificacao.textContent = 'Nunca';
+                
+                // Célula do código HTTP
+                const celulaHttpCode = novaLinha.insertCell(3);
+                celulaHttpCode.textContent = '-';
+                
+                // Célula de ações
+                const celulaAcoes = novaLinha.insertCell(4);
+                celulaAcoes.innerHTML = `
+                    <div class="actions">
+                        <button class="verificar-agora" data-index="${index}">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                `;
+                
+                // Adicionar event listener para o botão
+                celulaAcoes.querySelector('.verificar-agora').addEventListener('click', function() {
+                    verificarUrl(index);
+                });
+            });
+            
+            totalUrlsElement.textContent = urls.length;
+        }
+        
+        // Função para verificar o status de uma URL
+        async function verificarUrl(index) {
+            if (index >= urls.length) return;
+            
+            const url = urls[index].url;
+            const linha = tabelaUrls.rows[index];
+            
+            // Atualiza o status para "verificando"
+            urls[index].status = 'checking';
+            linha.cells[1].innerHTML = '<span class="status checking"><i class="fas fa-sync-alt spin"></i> Verificando...</span>';
+            checkingCount++;
+            atualizarContadores();
+            
+            // Modo real de verificação
+            try {
+                // Usando fetch com timeout e modo 'no-cors' para evitar problemas de CORS
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000);
+                
+                const response = await fetch(url, {
+                    method: 'GET',
+                    signal: controller.signal,
+                    mode: 'no-cors',
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
                     }
-                });
-            }
-            
-            // Atualizar dados dos gráficos
-            function atualizarGraficos() {
-                if (statusChart) {
-                    statusChart.data.datasets[0].data = [onlineCount, offlineCount, checkingCount];
-                    statusChart.update();
-                }
-                
-                // Adicionar dados ao histórico
-                const now = new Date();
-                historyData.push({
-                    timestamp: now.getTime(),
-                    online: onlineCount,
-                    offline: offlineCount,
-                    checking: checkingCount
+                }).catch(err => {
+                    // Se falhar, tenta uma abordagem alternativa
+                    return tryAlternativeCheck(url);
                 });
                 
-                // Manter apenas os últimos itens
-                if (historyData.length > maxHistoryItems) {
-                    historyData = historyData.slice(historyData.length - maxHistoryItems);
-                }
+                clearTimeout(timeoutId);
                 
-                if (historyChart) {
-                    const labels = historyData.map(item => {
-                        const date = new Date(item.timestamp);
-                        return date.toLocaleTimeString('pt-BR');
-                    });
-                    
-                    historyChart.data.labels = labels;
-                    historyChart.data.datasets[0].data = historyData.map(item => item.online);
-                    historyChart.data.datasets[1].data = historyData.map(item => item.offline);
-                    historyChart.update();
-                }
+                // Atualiza os dados
+                const agora = new Date();
+                urls[index].lastChecked = agora;
+                
+                // Se a requisição foi bem-sucedida (mesmo com erro HTTP)
+                urls[index].status = 'online';
+                urls[index].httpCode = response?.status || 200;
+                linha.cells[1].innerHTML = '<span class="status online"><i class="fas fa-check-circle"></i> Online</span>';
+                onlineCount++;
+                
+                linha.cells[2].textContent = formatarData(agora);
+                linha.cells[3].textContent = response?.status || 200;
+                
+            } catch (error) {
+                // Em caso de erro (offline)
+                const agora = new Date();
+                urls[index].status = 'offline';
+                urls[index].lastChecked = agora;
+                urls[index].httpCode = 'Erro';
+                
+                linha.cells[1].innerHTML = '<span class="status offline"><i class="fas fa-times-circle"></i> Offline</span>';
+                linha.cells[2].textContent = formatarData(agora);
+                linha.cells[3].textContent = 'Erro';
+                
+                offlineCount++;
             }
             
-            // Inicializar as URLs
-            function inicializarUrls() {
-                urls = urlsInspirali.map(url => {
-                    return {
-                        url: url,
-                        status: 'unknown',
-                        lastChecked: null,
-                        httpCode: null
-                    };
+            checkingCount--;
+            atualizarContadores();
+            atualizarUltimaVerificacao();
+            atualizarGraficos();
+        }
+        
+        // Tentativa alternativa de verificação
+        async function tryAlternativeCheck(url) {
+            try {
+                // Tenta usar uma imagem para verificar se o site está online
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => resolve({ status: 200 });
+                    img.onerror = () => reject(new Error('Image failed to load'));
+                    img.src = url + '/favicon.ico?' + new Date().getTime();
                 });
-                
-                atualizarContadores();
-                popularTabela();
-                criarGraficos();
+            } catch (err) {
+                throw err;
+            }
+        }
+        
+        function formatarData(data) {
+            return data.toLocaleString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+        
+        // Função para atualizar os contadores
+        function atualizarContadores() {
+            totalUrlsElement.textContent = urls.length;
+            onlineUrlsElement.textContent = onlineCount;
+            offlineUrlsElement.textContent = offlineCount;
+            checkingUrlsElement.textContent = checkingCount;
+        }
+        
+        // Função para atualizar a última verificação geral
+        function atualizarUltimaVerificacao() {
+            lastUpdateElement.textContent = `Última atualização: ${formatarData(new Date())}`;
+        }
+        
+        // Função para verificar todas as URLs
+        function verificarTodasUrls() {
+            onlineCount = 0;
+            offlineCount = 0;
+            checkingCount = urls.length;
+            atualizarContadores();
+            
+            // Verificar URLs em sequência com pequeno intervalo para não sobrecarregar
+            urls.forEach((_, index) => {
+                setTimeout(() => {
+                    verificarUrl(index);
+                }, index * 500);
+            });
+            
+            showNotification('Verificação iniciada!', 'success');
+        }
+        
+        // Função para iniciar o monitoramento periódico
+        function iniciarMonitoramento() {
+            if (monitoramentoAtivo) {
+                showNotification('O monitoramento já está ativo!', 'warning');
+                return;
             }
             
-            // Popular a tabela avec as URLs
-            function popularTabela() {
-                tabelaUrls.innerHTML = '';
-                
-                urls.forEach((item, index) => {
-                    const novaLinha = tabelaUrls.insertRow();
-                    
-                    // Célula da URL
-                    const celulaUrl = novaLinha.insertCell(0);
-                    celulaUrl.innerHTML = `<a href="${item.url}" target="_blank" class="url">${item.url}</a>`;
-                    
-                    // Célula de status
-                    const celulaStatus = novaLinha.insertCell(1);
-                    celulaStatus.innerHTML = '<span class="status checking"><i class="fas fa-sync-alt spin"></i> Não verificado</span>';
-                    
-                    // Célula da última verificação
-                    const celulaUltimaVerificacao = novaLinha.insertCell(2);
-                    celulaUltimaVerificacao.textContent = 'Nunca';
-                    
-                    // Célula do código HTTP
-                    const celulaHttpCode = novaLinha.insertCell(3);
-                    celulaHttpCode.textContent = '-';
-                    
-                    // Célula de ações
-                    const celulaAcoes = novaLinha.insertCell(4);
-                    celulaAcoes.innerHTML = `
-                        <div class="actions">
-                            <button class="verificar-agora" data-index="${index}">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                        </div>
-                    `;
-                    
-                    // Adicionar event listener para o botão
-                    celulaAcoes.querySelector('.verificar-agora').addEventListener('click', function() {
-                        verificarUrl(index);
-                    });
-                });
-                
-                totalUrlsElement.textContent = urls.length;
+            const intervalo = parseInt(intervaloInput.value) * 60000; // Converter para milissegundos
+            if (isNaN(intervalo) || intervalo < 60000) {
+                showNotification('Intervalo deve ser pelo menos 1 minuto', 'error');
+                return;
             }
             
-            // Função para verificar o status de uma URL
-            async function verificarUrl(index) {
-                if (index >= urls.length) return;
-                
-                const url = urls[index].url;
-                const linha = tabelaUrls.rows[index];
-                
-                // Atualiza o status para "verificando"
-                urls[index].status = 'checking';
-                linha.cells[1].innerHTML = '<span class="status checking"><i class="fas fa-sync-alt spin"></i> Verificando...</span>';
-                checkingCount++;
-                atualizarContadores();
-                atualizarGraficos();
-                
-                // Modo real de verificação
-                try {
-                    // Usando fetch com timeout e modo 'no-cors' para evitar problemas de CORS
-                    const controller = new AbortController();
-                    const timeoutId = setTimeout(() => controller.abort(), 15000);
-                    
-                    const response = await fetch(url, {
-                        method: 'GET',
-                        signal: controller.signal,
-                        mode: 'no-cors',
-                        headers: {
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-                        }
-                    }).catch(err => {
-                        // Se falhar, tenta uma abordagem alternativa
-                        return tryAlternativeCheck(url);
-                    });
-                    
-                    clearTimeout(timeoutId);
-                    
-                    // Atualiza os dados
-                    const agora = new Date();
-                    urls[index].lastChecked = agora;
-                    
-                    // Se a requisição foi bem-sucedida (mesmo com erro HTTP)
-                    urls[index].status = 'online';
-                    urls[index].httpCode = response?.status || 200;
-                    linha.cells[1].innerHTML = '<span class="status online"><i class="fas fa-check-circle"></i> Online</span>';
-                    onlineCount++;
-                    
-                    linha.cells[2].textContent = formatarData(agora);
-                    linha.cells[3].textContent = response?.status || 200;
-                    
-                } catch (error) {
-                    // Em caso de erro (offline)
-                    const agora = new Date();
-                    urls[index].status = 'offline';
-                    urls[index].lastChecked = agora;
-                    urls[index].httpCode = 'Erro';
-                    
-                    linha.cells[1].innerHTML = '<span class="status offline"><i class="fas fa-times-circle"></i> Offline</span>';
-                    linha.cells[2].textContent = formatarData(agora);
-                    linha.cells[3].textContent = 'Erro';
-                    
-                    offlineCount++;
-                }
-                
-                checkingCount--;
-                atualizarContadores();
-                atualizarUltimaVerificacao();
-                atualizarGraficos();
+            monitoramentoAtivo = true;
+            verificarTodasUrls();
+            
+            // Configurar intervalo para verificação periódica
+            intervalos.monitoramento = setInterval(verificarTodasUrls, intervalo);
+            
+            iniciarBtn.classList.add('pulse');
+            showNotification(`Monitoramento iniciado! Verificando a cada ${intervaloInput.value} minutos.`, 'success');
+        }
+        
+        // Função para parar o monitoramento
+        function pararMonitoramento() {
+            if (!monitoramentoAtivo) {
+                showNotification('O monitoramento não está ativo!', 'warning');
+                return;
             }
             
-            // Tentativa alternativa de verificação
-            async function tryAlternativeCheck(url) {
-                try {
-                    // Tenta usar uma imagem para verificar se o site está online
-                    return new Promise((resolve, reject) => {
-                        const img = new Image();
-                        img.onload = () => resolve({ status: 200 });
-                        img.onerror = () => reject(new Error('Image failed to load'));
-                        img.src = url + '/favicon.ico?' + new Date().getTime();
-                    });
-                } catch (err) {
-                    throw err;
-                }
-            }
-            
-            function formatarData(data) {
-                return data.toLocaleString('pt-BR', {
-                    day: '2-digit',
-                    month: '2-digit',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-            }
-            
-            // Função para atualizar os contadores
-            function atualizarContadores() {
-                totalUrlsElement.textContent = urls.length;
-                onlineUrlsElement.textContent = onlineCount;
-                offlineUrlsElement.textContent = offlineCount;
-                checkingUrlsElement.textContent = checkingCount;
-            }
-            
-            // Função para atualizar a última verificação geral
-            function atualizarUltimaVerificacao() {
-                lastUpdateElement.textContent = `Última atualização: ${formatarData(new Date())}`;
-            }
-            
-            // Função para verificar todas as URLs
-            function verificarTodasUrls() {
-                onlineCount = 0;
-                offlineCount = 0;
-                checkingCount = urls.length;
-                atualizarContadores();
-                
-                // Verificar URLs em sequência com pequeno intervalo para não sobrecarregar
-                urls.forEach((_, index) => {
-                    setTimeout(() => {
-                        verificarUrl(index);
-                    }, index * 500);
-                });
-                
-                showNotification('Verificação iniciada!', 'success');
-            }
-            
-            // Função para iniciar o monitoramento periódico
-            function iniciarMonitoramento() {
-                if (monitoramentoAtivo) {
-                    showNotification('O monitoramento já está ativo!', 'warning');
-                    return;
-                }
-                
-                const intervalo = parseInt(intervaloInput.value) * 60000; // Converter para milissegundos
-                if (isNaN(intervalo) || intervalo < 60000) {
-                    showNotification('Intervalo deve ser pelo menos 1 minuto', 'error');
-                    return;
-                }
-                
-                monitoramentoAtivo = true;
-                verificarTodasUrls();
-                
-                // Configurar intervalo para verificação periódica
-                intervalos.monitoramento = setInterval(verificarTodasUrls, intervalo);
-                
-                iniciarBtn.classList.add('pulse');
-                showNotification(`Monitoramento iniciado! Verificando a cada ${intervaloInput.value} minutos.`, 'success');
-            }
-            
-            // Função para parar o monitoramento
-            function pararMonitoramento() {
-                if (!monitoramentoAtivo) {
-                    showNotification('O monitoramento não está ativo!', 'warning');
-                    return;
-                }
-                
-                monitoramentoAtivo = false;
-                clearInterval(intervalos.monitoramento);
-                iniciarBtn.classList.remove('pulse');
-                showNotification('Monitoramento parado!', 'success');
-            }
-            
-            // Event listeners para os botões
-            iniciarBtn.addEventListener('click', iniciarMonitoramento);
-            pararBtn.addEventListener('click', pararMonitoramento);
-            verificarAgoraBtn.addEventListener('click', verificarTodasUrls);
-            
-            // Inicializar a aplicação
-            inicializarUrls();
-            
-            // Explicação inicial
-            setTimeout(() => {
-                showNotification('Sistema de monitoramento de URLs da Inspirali inicializado', 'info');
-            }, 2000);
-        });
-    </script>
+            monitoramentoAtivo = false;
+            clearInterval(intervalos.monitoramento);
+            iniciarBtn.classList.remove('pulse');
+            showNotification('Monitoramento parado!', 'success');
+        }
+        
+        // Event listeners para os botões
+        iniciarBtn.addEventListener('click', iniciarMonitoramento);
+        pararBtn.addEventListener('click', pararMonitoramento);
+        verificarAgoraBtn.addEventListener('click', verificarTodasUrls);
+        
+        // Inicializar a aplicação
+        inicializarUrls();
+        
+        // Explicação inicial
+        setTimeout(() => {
+            showNotification('Sistema de monitoramento de URLs da Inspirali inicializado', 'info');
+        }, 2000);
+    });
+</script>
 </body>
 </html>
