@@ -885,6 +885,9 @@
             // Inicializar a aplicação
             inicializarUrls();
             
+            // Executar verificação automaticamente ao carregar a página
+            verificarTodasUrls();
+            
             // Explicação inicial
             setTimeout(() => {
                 showNotification('Sistema de monitoramento de URLs da Inspirali inicializado', 'info');
